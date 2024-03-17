@@ -5,13 +5,17 @@
 Evasive and customizable DLL loader
 </h1>
 
-
 # Features
 
-- API hashing using Fowler-Noll-Vo functions
+- Initial execution is delayed by a user-specified time
 
-- Injection via thread fibers
+- API hashing using Fowler-Noll-Vo functions. IAT camouflage by importing whitelisted WinAPI functions
 
-- Delaying execution between API calls (user-defined time)
+- Payload injection via chunking. Execution using thread fibers
+
 
 - CRT independent
+
+# Usage
+
+All the customization options are available in `Config.h`
