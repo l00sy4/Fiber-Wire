@@ -13,3 +13,5 @@ Evasive and customizable DLL loader
 - Injection via thread fibers
 
 - Delaying execution between API calls (user-defined time)
+
+- CRT independent
