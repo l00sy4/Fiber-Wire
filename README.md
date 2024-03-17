@@ -8,8 +8,8 @@ Evasive and customizable DLL loader
 
 # Features
 
-- API hashing w/Fowler-Noll-Vo
+- API hashing using Fowler-Noll-Vo functions
 
-- Injection via fiber
+- Injection via thread fibers
 
-- Delaying execution
+- Delaying execution between API calls (user-defined time)
