@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 
-BOOL Inject(_In_ PBYTE PayloadBuffer, _In_ SIZE_T PayloadSize, _Out_ PBYTE* AllocationStart);
+PVOID Inject(_In_ PBYTE PayloadBuffer, _In_ SIZE_T PayloadSize);
+VOID _Memcpy(_In_ PVOID Destination, _In_ PVOID Source, _In_ SIZE_T Length);
 
 #endif

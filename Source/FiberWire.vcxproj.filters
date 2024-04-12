@@ -30,6 +30,9 @@
     <ClCompile Include="Inject.c">
       <Filter>Source Files\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Execute.c">
+      <Filter>Source Files\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Structures.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Inject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Execute.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

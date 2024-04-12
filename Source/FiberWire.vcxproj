@@ -154,10 +154,12 @@
   <ItemGroup>
     <ClCompile Include="DelayExec.c" />
     <ClCompile Include="dllmain.c" />
+    <ClCompile Include="Execute.c" />
     <ClCompile Include="Inject.c" />
     <ClCompile Include="ObfuscateIAT.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Execute.h" />
     <ClInclude Include="Inject.h" />
     <ClInclude Include="ObfuscateIAT.h" />
     <ClInclude Include="DelayExec.h" />

