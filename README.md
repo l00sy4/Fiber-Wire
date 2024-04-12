@@ -7,7 +7,7 @@ Evasive DLL loader
 
 # Features
 
-- Initial execution delayed using KUSER_SHARED_DATA sleeping and benign WinAPI calls
+- Initial execution delayed using KUSER_SHARED_DATA sleeping and benign WinAPI calls. Additional delay between certain actions.
 
 - API hashing using Fowler-Noll-Vo functions
 
