@@ -11,7 +11,9 @@ Evasive DLL loader
 
 - API hashing using Fowler-Noll-Vo functions
 
-- Payload injection via chunking. Execution using thread fibers
+- Finds natural RWX sections and injects payload via chunking.
+
+- Execution using thread fibers
 
 - CRT independent
 
