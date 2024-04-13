@@ -22,4 +22,6 @@ Evasive DLL loader
 
 # To-do
 
-Get the payload from a .rc file
+- Get the payload from a .rc file
+
+- Add option to allocate chunks and change their protection to RWX if no natural section is found
