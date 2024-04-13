@@ -30,6 +30,7 @@ Project still very much WIP!
 
 - Add option to allocate chunks and change their protection to RWX if no natural section is found
 
+- Add guardrails, which if met will execute one of the dummy functions (they'll get fleshed out)
 
 ### Credits
 
