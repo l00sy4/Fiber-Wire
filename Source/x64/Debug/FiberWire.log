@@ -1,0 +1,11 @@
+﻿  DelayExec.c
+  dllmain.c
+  Execute.c
+  Inject.c
+  ObfuscateIAT.c
+  Generating Code...
+C:\Users\ANDREI\Desktop\Source\DelayExec.c(66,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+C:\Users\ANDREI\Desktop\Source\dllmain.c(35,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+C:\Users\ANDREI\Desktop\Source\Execute.c(22,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+C:\Users\ANDREI\Desktop\Source\Inject.c(58,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+C:\Users\ANDREI\Desktop\Source\ObfuscateIAT.c(82,1): error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
