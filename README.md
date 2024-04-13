@@ -2,7 +2,7 @@
 <br>
 <img src="FiberWire.PNG">
 <br>
-Evasive DLL loader
+DLL loader
 </h1>
 
 # Features
@@ -19,6 +19,7 @@ Evasive DLL loader
 
 # Usage
 
+Project still very much WIP!
 
 # To-do
 
