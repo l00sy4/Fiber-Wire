@@ -20,3 +20,6 @@ Evasive DLL loader
 # Usage
 
 
+# To-do
+
+Get the payload from a .rc file
