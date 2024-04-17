@@ -63,9 +63,9 @@ FARPROC GetFunctionAddress(_In_ HMODULE DllHandle, _In_ ULONG FunctionNameHash)
 	PIMAGE_EXPORT_DIRECTORY ExportDirectory       = (PIMAGE_EXPORT_DIRECTORY)((PBYTE)DllHandle + NTHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress);
 	DWORD                   ExportDirectorySize   = NTHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size;
 
-	PDWORD					FunctionNameArray	  = (PDWORD)((PBYTE)DllHandle + ExportDirectory->AddressOfNames);
-	PDWORD					FunctionAddressArray  = (PDWORD)((PBYTE)DllHandle + ExportDirectory->AddressOfFunctions);
-	PWORD					AddressOfNameOrdinals = (PWORD)((PBYTE)DllHandle  + ExportDirectory->AddressOfNameOrdinals);
+	PDWORD		        FunctionNameArray     = (PDWORD)((PBYTE)DllHandle + ExportDirectory->AddressOfNames);
+	PDWORD			FunctionAddressArray  = (PDWORD)((PBYTE)DllHandle + ExportDirectory->AddressOfFunctions);
+	PWORD			AddressOfNameOrdinals = (PWORD)((PBYTE)DllHandle  + ExportDirectory->AddressOfNameOrdinals);
 
 	for (DWORD i = 0; i < ExportDirectory->NumberOfFunctions; i++) 
 	{
