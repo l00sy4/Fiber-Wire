@@ -12,7 +12,7 @@ DLL loader
 
 - API hashing using Fowler-Noll-Vo functions
 
-- Finds natural RWX sections and injects payload via chunking
+- Payload Injection via chunking (currently undergoing change)
 
 - Execution using thread fibers
 
@@ -27,12 +27,6 @@ Project still very much WIP!
 # To-do
 
 - Get the payload from a .rc file
-
-- Add option to allocate chunks and change their protection to RWX if no natural section is found
-
-- Add guardrails, which if met will execute one of the dummy functions (they'll get fleshed out)
-
-- Parse section headers when looking for RWX space
 
 ### Credits
 
