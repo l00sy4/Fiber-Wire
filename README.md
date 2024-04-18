@@ -2,17 +2,16 @@
 <br>
 <img src="FiberWire.PNG">
 <br>
-DLL loader
-</h1>
 
+</h1>
 
 # Features
 
-- Initial execution delayed using KUSER_SHARED_DATA sleeping and benign WinAPI calls. Additional delay between certain actions
+- Initial execution delayed using KUSER_SHARED_DATA sleeping and benign WinAPI calls. Additional delay between actions that could constitute a pattern
 
 - API hashing using Fowler-Noll-Vo functions
 
-- Payload Injection via chunking (currently undergoing change)
+- Payload Injection via chunking. Since the protection is RX, it does not support polymorphic payloads
 
 - Execution using thread fibers
 
