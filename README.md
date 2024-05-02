@@ -11,7 +11,7 @@
 
 - API hashing using Fowler-Noll-Vo functions
 
-- Payload Injection via chunking. Since the protection is RX, it does not support polymorphic payloads
+- Payload Injection via chunking. Since the protection is RX, it does not support polymorphic payloads (use ROP chains for a sleep mask!)
 
 - Execution using thread fibers
 
