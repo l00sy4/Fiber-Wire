@@ -30,9 +30,21 @@ ULONG FNV1a(_In_ LPCSTR String)
 	return Hash;
 }
 
+PPEB GetPEBAddress() 
+{
+	_asm {  xor    rax,rax
+		mov    rdx,rax
+		add    dl,0x69
+		sub    rdx,0x9
+		mov    rax,QWORD PTR gs:[rax+rdx*1]
+		ret  
+	     }
+}
+
+
 HMODULE GetDllHandle(_In_ ULONG DllNameHash)
 {
-	PLIST_ENTRY Head   = (PLIST_ENTRY) & ((PPEB)__readgsqword(0x60))->LoaderData->InMemoryOrderModuleList;
+	PLIST_ENTRY Head   = (PLIST_ENTRY) & ((PPEB)GetPEBAddress)->LoaderData->InMemoryOrderModuleList;
 	PLIST_ENTRY Next   = Head->Flink;
 	PLDR_MODULE Module = (PLDR_MODULE)((PBYTE)Next - 0x10);
 
