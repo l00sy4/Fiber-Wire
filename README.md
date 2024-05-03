@@ -26,6 +26,7 @@ Project still very much WIP!
 # To-do
 
 - Get the payload from a .rc file
+- Actually use the API hashing
 
 ### Credits
 
